@@ -8,14 +8,15 @@ def dataLoad(filename):
     Temperature = np.array([]) #Tre åbne vektorerer til data
     Growth = np.array([])
     Bacteria = np.array([])
+    Bactnr = np.array([1,2,3,4])
     for i in range(len(fildata.Temperature)): #Laver et loop for antallet af data rækker
-        if fildata.Temperature[i]<10 or fildata.Temperature[i]>60 or fildata.Growth_rate[i]<0 or fildata.Bacteria[i]<1 or fildata.Bacteria[i]>4 : #Verdens længste if-statement der tjekker om alle kravene gælder
+        if fildata.Temperature[i]<10 or fildata.Temperature[i]>60 or fildata.Growth_rate[i]<0 or fildata.Bacteria[i] not in Bactnr : #Verdens længste if-statement der tjekker om alle kravene gælder
             if errormsg == True:
                 if fildata.Temperature[i]<10 or fildata.Temperature[i]>60:
                     print("Error at test {} , the temperature is {}: Temperature is not in accepted range".format(i,fildata.Temperature[i]))
                 if fildata.Growth_rate[i]<0:
                     print("Error at test {}, the growth rate is {}: Growth rate must be a positive number".format(i,fildata.Growth_rate[i]))
-                if fildata.Bacteria[i]<1 or fildata.Bacteria[i]>4:
+                if fildata.Bacteria[i] not in Bactnr:
                     print("Error at test {}, the bacteria is {}: The bacteria must be one of the following: [1] Salmonella, [2] Sacillus sereus, [3] Listeria or [4] Brochothrix Thermosphacta".format(i,fildata.Bacteria[i]))
         else: #Samler den godkendte data
             Tem=fildata.Temperature[i]
