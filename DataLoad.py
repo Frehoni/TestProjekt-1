@@ -9,11 +9,11 @@ def dataLoad(filename):
     Growth = np.array([])
     Bacteria = np.array([])
     Bactnr = np.array([1,2,3,4])
+    if errormsg == True:
+        print("Error report:")
     for i in range(len(fildata.Temperature)): #Laver et loop for antallet af data rækker
         if fildata.Temperature[i]<10 or fildata.Temperature[i]>60 or fildata.Growth_rate[i]<0 or fildata.Bacteria[i] not in Bactnr : #Verdens længste if-statement der tjekker om alle kravene gælder
             if errormsg == True:
-                if i == 0 :
-                    print("Error report:")
                 if fildata.Temperature[i]<10 or fildata.Temperature[i]>60:
                     print("Error at test {}, the temperature is {}°C: Temperature has to be between 10°C and 60°C.".format(i,fildata.Temperature[i]))
                 if fildata.Growth_rate[i]<0:
@@ -30,6 +30,7 @@ def dataLoad(filename):
     data = np.column_stack((Temperature,Growth,Bacteria)) #Samler den godkendte data i en Nx3 matrice
     return data
 
+#print(dataLoad("random.csv"))
         
         
         

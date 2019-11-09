@@ -53,6 +53,6 @@ def dataPlot(data):
     #plt.plot(y, x, color='b', label="Average temperature") 
     #plt.plot(y, xmean, color='r', label="Average Mean temperature")
 
-print(dataPlot(np.column_stack((np.array([12,50,30]),np.array([1.1,0.2,1]),np.array([2,4,1]))))) 
+#print(dataPlot(np.column_stack((np.array([12,50,30]),np.array([1.1,0.2,1]),np.array([2,4,1]))))) 
 
 

@@ -1,3 +1,6 @@
+import DataLoad
+import inputnumber_and_displaymenu
+import DataPlot
 import numpy as np
 menuItems =np.array(["Load data.","Filter data.","Display statistics.","Generate plots.","Quit."])
 while True:
