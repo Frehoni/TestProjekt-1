@@ -19,7 +19,7 @@ def dataLoad(filename):
                 if fildata.Growth_rate[i]<0:
                     print("Error at test {}, the growth rate is {}: Growth rate must be a positive number.".format(i,fildata.Growth_rate[i]))
                 if fildata.Bacteria[i] not in Bactnr:
-                    print("Error at test {}, the bacteria is [{}] Unknown: The bacteria must be one of the following: [1] Salmonella Enterica, [2] Bacillus Cereus, [3] Listeria or [4] Brochothrix Thermosphacta.".format(i,fildata.Bacteria[i]))
+                    print("Error at test {}, the bacteria is [{}]-Unknown: The bacteria must be either [1],[2],[3] or [4] ".format(i,fildata.Bacteria[i]))
         else: #Samler den godkendte data
             Tem=fildata.Temperature[i]
             Temperature = np.append(Temperature,Tem)
