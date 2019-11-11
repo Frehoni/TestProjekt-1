@@ -5,7 +5,7 @@ while True:
     #Display menu
     choice = displayMenu(menuItems)
     # Enter filename
-    istheredata = []
+
     if choice ==1:
         filename = input("Please enter the full file name, for example \"file.csv\" : ")
         data = dataLoad(filename)
