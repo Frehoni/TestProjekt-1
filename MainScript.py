@@ -2,7 +2,7 @@ import numpy as np
 
 menuItems = np.array(["Load data.","Filter data.","Display statistics.","Generate plots.","Quit."])
 istheredata = False
-bactnr = np.array([1,2,3,4])
+bactnr = np.array(['1','2','3','4'])
 bactname = np.array(["salmonella entirca","bacillus cereus","listeria","brochothrix thermosphacta"])
 
 
@@ -27,13 +27,14 @@ while True:
         if option == 1:
             print("The bacteria must be one of the following: [1] Salmonella Enterica, [2] Bacillus Cereus, [3] Listeria or [4] Brochothrix Thermosphacta.")
             bact_type = input("Please type a bacteria to sort for, for example type the number of the bacteria \"3\" or the name \"Listeria\" :")
+
             C = True
             D = True
             E = True
             F = True
             rowstack = np.array([])
             Temp,Growth,Bact = np.hsplit(data,3)
-            if bact_type[0] == bactnr[0] or bact_type.lower() == bactname[0]:
+            if bact_type == bactnr[0] or bact_type.lower() == bactname[0]:
                 
                 for row in range(np.size(Growth)):
                     split = data[row,:]
@@ -49,7 +50,7 @@ while True:
                         else:
                             rowstack = np.vstack((rowstack,split))
             
-            if bact_type[0] == bactnr[1] or bact_type.lower() == bactname[1]:
+            if bact_type == bactnr[1] or bact_type.lower() == bactname[1]:
                 for row in range(np.size(Growth)):
                     split = data[row,:]
 
@@ -67,7 +68,7 @@ while True:
 
             
             
-            if bact_type[0] == bactnr[2] or bact_type.lower() == bactname[2]:
+            if bact_type == bactnr[2] or bact_type.lower() == bactname[2]:
                 
                 for row in range(np.size(Growth)):
                     split = data[row,:]
@@ -85,7 +86,7 @@ while True:
             
        
             
-            if bact_type[0] == bactnr[3] or bact_type.lower() == bactname[3]:
+            if bact_type == bactnr[3] or bact_type.lower() == bactname[3]:
                 for row in range(np.size(Growth)):
                     split = data[row,:]
 
