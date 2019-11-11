@@ -23,16 +23,14 @@ while True:
             print("The bacteria must be one of the following: [1] Salmonella Enterica, [2] Bacillus Cereus, [3] Listeria or [4] Brochothrix Thermosphacta.")
             bact_type = input("Please type a bacteria to sort for, for example type the number of the bacteria \"3\" or the name \"Listeria\" :")
         if option == 2:
-            growth_filter = input("Please select an option: ")
             #Lav og indsæt filter funktion, kunne være filter(growth_filter)
             
             upper = np.max(data) #upper og lower indtil vi andet er defineret
             lower = np.min(data)
             equal_true = False
-            
             growth_filter_option = np.array(["Set Upper Boundary","Set Lower Boundary","Set Equal = argument","Remove restrictions", "Finish"])
             growth_option = displayMenu(growth_filter_option)
-            
+            growth_filter = input("Please select an option: ")
             while True:
                 
                 if growth_option == 1: #Upper boundary
@@ -52,15 +50,25 @@ while True:
                     equal = input("Type what the growth rate should be equal to: ")
                     equal_true = True
                 if growth_option == 4: #Remove
-                    #bla  
-                    del upper,lower,equal
-                    
+                    data = dataLoad(filename) 
+                    upper = np.max(data) #upper og lower indtil vi andet er defineret
+                    lower = np.min(data)
+                    equal_true = False
                 if growth_option == 5: #Finish
                     #bla  
+                    colomnstack = np.array([])
                     Temp,Growth,Bact = np.hsplit(data,3)
                     if equal_true == True:
-                        
-                    
+                        for colmn in range(np.size(Growth)):
+                            split = np.vsplit(data,[colmn])
+                            if split[1] == equal:
+                                colomnstack = np.column_stack(colomnstack,split)
+                    else:
+                        for colmn in range(np.size(Growth)):
+                            split = np.vsplit(data,[colmn])
+                            if split[1] < upper and split[1] > lower:
+                                colomnstack = np.column_stack(colomnstack,split)
+
                     break
                 
             
