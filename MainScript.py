@@ -2,10 +2,6 @@ import numpy as np
 
 menuItems = np.array(["Load data.","Filter data.","Display statistics.","Generate plots.","Quit."])
 istheredata = False
-bactnr = np.array(['1','2','3','4'])
-bactname = np.array(["salmonella entirca","bacillus cereus","listeria","brochothrix thermosphacta"])
-
-
 while True:
     #Display menu
     choice = displayMenu(menuItems)
@@ -22,6 +18,8 @@ while True:
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
             istheredata = True
+        bactnr = np.array(['1','2','3','4'])
+        bactname = np.array(["salmonella entirca","bacillus cereus","listeria","brochothrix thermosphacta"])
         filtoptions = np.array(['Sort for Bacteria type.','Sort for Growth rate.','Go back'])
         option = displayMenu(filtoptions)
         if option == 1:
