@@ -5,14 +5,14 @@ while True:
     #Display menu
     choice = displayMenu(menuItems)
     # Enter filename
-    istheredata = False
+    istheredata = []
     if choice ==1:
         filename = input("Please enter the full file name, for example \"file.csv\" : ")
         data = dataLoad(filename)
         istheredata = True
     # Filter data
     elif choice == 2:
-        if istheredata == False:
+        if istheredata != True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
@@ -29,14 +29,14 @@ while True:
             pass
     # Display statistics
     elif choice ==3 :
-        if istheredata == False:
+        if istheredata != True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
             istheredata = True
     #Generate plots
     elif choice == 4:
-        if istheredata == False:
+        if istheredata != True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
