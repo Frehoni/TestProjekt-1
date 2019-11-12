@@ -53,6 +53,18 @@ def dataPlot(data):
     #plt.plot(y, x, color='b', label="Average temperature") 
     #plt.plot(y, xmean, color='r', label="Average Mean temperature")
 
-#print(dataPlot(np.column_stack((np.array([12,50,30]),np.array([1.1,0.2,1]),np.array([2,4,1]))))) 
+print(dataPlot(np.column_stack((np.array([12,50,30]),np.array([1.1,0.2,1]),np.array([2,4,1]))))) 
 
-
+"""plt.title("Mean temperatures in the UK")
+plt.ylabel("Mean temperaturs (degree Celcius)")
+plt.xlabel("Year")
+plt.xlim([1920, 2010])
+plt.ylim([7.0, 10.5])
+plt.plot(y, x, color='b', label="Average temperature") 
+plt.plot(y, xmean, color='r', label="Average Mean temperature") 
+plt.legend(loc="upper left")
+savefig(plot, dpi=None, facecolor='w', edgecolor='w',
+        orientation='portrait', papertype=None, format=None,
+        transparent=False, bbox_inches=None, pad_inches=0.1,
+        frameon=None, metadata=None)
+plt.show()"""
