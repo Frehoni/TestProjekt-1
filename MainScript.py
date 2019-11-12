@@ -18,13 +18,15 @@ while True:
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
             istheredata = True
-        bactnr = np.array(['1','2','3','4'])
-        bactname = np.array(["salmonella entirca","bacillus cereus","listeria","brochothrix thermosphacta"])
+        #bactnr = np.array(['1','2','3','4'])
+        bactsortoption = np.array(["Salmonella Enterca","Bacillus Cereus","Listeria","Brochothrix Thermosphacta","Go back"])
         filtoptions = np.array(['Sort for Bacteria type.','Sort for Growth rate.','Go back'])
         option = displayMenu(filtoptions)
+      
+        
         if option == 1:
-            print("The bacteria must be one of the following: [1] Salmonella Enterica, [2] Bacillus Cereus, [3] Listeria or [4] Brochothrix Thermosphacta.")
-            bact_type = input("Please type a bacteria to sort for, for example type the number of the bacteria \"3\" or the name \"Listeria\" :")
+            #print("The bacteria must be one of the following: [1] Salmonella Enterica, [2] Bacillus Cereus, [3] Listeria or [4] Brochothrix Thermosphacta.")
+            #bact_type = input("Please type a bacteria to sort for, for example type the number of the bacteria \"3\" or the name \"Listeria\" :")
 
             C = True
             D = True
@@ -32,7 +34,10 @@ while True:
             F = True
             rowstack = np.array([])
             Temp,Growth,Bact = np.hsplit(data,3)
-            if bact_type == bactnr[0] or bact_type.lower() == bactname[0]:
+            bactnr = np.array([1,2,3,4])
+            bactoption = displayMenu(bactsortoption)
+            
+            if bactoption == 1:
                 
                 for row in range(np.size(Growth)):
                     split = data[row,:]
@@ -48,7 +53,7 @@ while True:
                         else:
                             rowstack = np.vstack((rowstack,split))
             
-            if bact_type == bactnr[1] or bact_type.lower() == bactname[1]:
+            elif bactoption == 2:
                 for row in range(np.size(Growth)):
                     split = data[row,:]
 
@@ -66,7 +71,7 @@ while True:
 
             
             
-            if bact_type == bactnr[2] or bact_type.lower() == bactname[2]:
+            elif bactoption == 3:
                 
                 for row in range(np.size(Growth)):
                     split = data[row,:]
@@ -84,7 +89,7 @@ while True:
             
        
             
-            if bact_type == bactnr[3] or bact_type.lower() == bactname[3]:
+            elif bactoption == 4:
                 for row in range(np.size(Growth)):
                     split = data[row,:]
 
@@ -98,9 +103,11 @@ while True:
 
                         else:
                             rowstack = np.vstack((rowstack,split))
+            elif bactoption == 5:
+                pass
                             
-        data = rowstack
-        print(data)       
+            data = rowstack
+            print(data)       
 
             
             
