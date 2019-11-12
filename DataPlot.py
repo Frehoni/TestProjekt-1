@@ -39,8 +39,6 @@ def dataPlot(data):
 
     plt.show()
     #Growth rate by temperature plot
-<<<<<<< HEAD
-=======
     #Data for Salmonella
     salmo = data[np.where(data[:,2] == 1)]
     x1 = np.sort(salmo[:,0])
@@ -63,17 +61,13 @@ def dataPlot(data):
     y4 = np.sort(bakt4[:,1])
     plt.plot(x4,y4,color='cyan',label="Brochothrix Thermosphacta")
     #Generelt for Plot
->>>>>>> 93ad4a123c19f2a747942015beba73ab460e802e
     plt.title("Growth rate of bacteria by temperature")
     plt.ylabel("Growth rate")
     plt.xlabel("Temperatures")
     plt.xlim([10, 60])
     plt.ylim([0, np.amax(Growth)])
-<<<<<<< HEAD
-=======
     plt.legend(loc="upper left")
     plt.show()
->>>>>>> 93ad4a123c19f2a747942015beba73ab460e802e
     #create legend - https://stackoverflow.com/questions/43872450/matplotlib-histogram-with-multiple-legend-entries
     #handles = [Rectangle((0,0),1,1,color=c,ec="k") for c in [SE,BC,L,BT]]
     #labels= ["[1] Salmonella Enterica","[2] Bacillus Cereus", "[3] Listeria","[4] Brochothrix Thermosphacta"]
@@ -83,18 +77,6 @@ def dataPlot(data):
     #plt.plot(y, x, color='b', label="Average temperature") 
     #plt.plot(y, xmean, color='r', label="Average Mean temperature")
 
-print(dataPlot(np.column_stack((np.array([12,50,30]),np.array([1.1,0.2,1]),np.array([2,4,1]))))) 
+print(dataPlot(np.column_stack((np.array([12,50,30,40,35,25,55,2,10,3,22,45]),np.array([1.1,0.2,1,0.5,0.6,0.7,2,1.4,0.7,0.01,3.25,1.26]),np.array([2,4,1,3,1,1,2,1,3,3,4,2]))))) 
 
-"""plt.title("Mean temperatures in the UK")
-plt.ylabel("Mean temperaturs (degree Celcius)")
-plt.xlabel("Year")
-plt.xlim([1920, 2010])
-plt.ylim([7.0, 10.5])
-plt.plot(y, x, color='b', label="Average temperature") 
-plt.plot(y, xmean, color='r', label="Average Mean temperature") 
-plt.legend(loc="upper left")
-savefig(plot, dpi=None, facecolor='w', edgecolor='w',
-        orientation='portrait', papertype=None, format=None,
-        transparent=False, bbox_inches=None, pad_inches=0.1,
-        frameon=None, metadata=None)
-plt.show()"""
+
