@@ -203,7 +203,7 @@ while True:
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
             istheredata = True
-        statslist = np.array(['Calculate the average temperature','Calculate the average growth rate','Calculate the standard deviation of the temperatures','Calulate standard deviation of the growth rates','Calculate the number of rows in the data','Calculate the average growth rate when the temperature is less than 20°C','Calculate the average growth rate when the temperature is greater than 50°C','Go back'])
+        statslist = np.array(['Calculate the average temperature','Calculate the average growth rate','Calculate the standard deviation of the temperatures','Calculate standard deviation of the growth rates','Calculate the number of rows in the data','Calculate the average growth rate when the temperature is less than 20°C','Calculate the average growth rate when the temperature is greater than 50°C','Go back'])
         while True:
             statsoption = displayMenu(statslist)
             
@@ -215,10 +215,10 @@ while True:
                 print("The average growth rate is {}".format(stat))
             elif statsoption == 3:
                 stat = dataStatistics(data,3)
-                print("The standard deviation of the temperatures is {1f}".format(stat))
+                print("The standard deviation of the temperatures is {:.1f}".format(stat))
             elif statsoption == 4:
                 stat = dataStatistics(data,4)
-                print("The standard deviation of the growth rate is {1f}".format(stat))
+                print("The standard deviation of the growth rate is {:.2f}".format(stat))
             elif statsoption == 5:
                 stat = dataStatistics(data,5)
                 print("The data contains {} rows".format(stat))

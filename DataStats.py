@@ -20,16 +20,21 @@ def dataStatistics(data,statistic):
         result = np.size(Temp)
         return result
     elif statistic == 6: #Mean Cold Growth rate
+        try:
+            less = data[np.where(data[:,0] < 20)]
+            n1,g20,n2 = np.hsplit(less,3)
+            result = np.mean(g20)
+            return result
+        except IndexError:
+            return "not possible to calculate"
         
-        less = data[np.where(data[:,0] < 20)]
-        n1,g20,n2 = np.hsplit(less,3)
-        result = np.mean(g20)
-        return result
-    
     elif statistic == 7: #Mean Hot Growth rate
-        great = data[np.where(data[:,0] > 40)]
-        n1,g50,n2 = np.hsplit(great,3)
-        result = np.mean(g50)
-        return result
+        try:
+            great = data[np.where(data[:,0] > 50)]
+            n1,g50,n2 = np.hsplit(great,3)
+            result = np.mean(g50)
+            return result
+        except IndexError:
+            return "not possible to calculate."
 
     
