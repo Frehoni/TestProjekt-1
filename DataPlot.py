@@ -1,6 +1,6 @@
 import numpy as np
 import matplotlib.pyplot as plt
-from matplotlib.patches import Rectangle
+
 def dataPlot(data):
     
     Temp,Growth,Bact = np.hsplit(data,3)
@@ -45,28 +45,29 @@ def dataPlot(data):
     y1 = np.sort(salmo[:,1])
     
     print(x1,y1)
-    plt.plot(x1,y1,color='b',label="Salmonella")
+    plt.plot(x1,y1,color='red',legend="Salmonella Enterca")
     #Data for bakterie 2
     bakt2 = data[np.where(data[:,2] == 2)]
     x2 = np.sort(bakt2[:,0])
     y2 = np.sort(bakt2[:,1])
-    plt.plot(x2,y2,color='r',label="bakt2")
+    plt.plot(x2,y2,color='green',legend="Bacillus Cereus")
     #Data for bakterie 3
     bakt3 = data[np.where(data[:,2] == 3)]
     x3 = np.sort(bakt3[:,0])
     y3 = np.sort(bakt3[:,1])
-    plt.plot(x3,y3,color='yellow',label="bakt3")
+    plt.plot(x3,y3,color='blue',legend="Listeria")
     #Data for bakterie 4
     bakt4 = data[np.where(data[:,2] == 4)]
     x4 = np.sort(bakt4[:,0])
     y4 = np.sort(bakt4[:,1])
-    plt.plot(x4,y4,color='purple',label="bakt4")
+    plt.plot(x4,y4,color='cyan',legend="Brochothrix Thermosphacta")
     #Generelt for Plot
     plt.title("Growth rate of bacteria by temperature")
     plt.ylabel("Growth rate")
     plt.xlabel("Temperatures")
     plt.xlim([10, 60])
     plt.ylim([0, np.amax(Growth)])
+    plt.legend(loc="upper left")
     plt.show()
     #create legend - https://stackoverflow.com/questions/43872450/matplotlib-histogram-with-multiple-legend-entries
     #handles = [Rectangle((0,0),1,1,color=c,ec="k") for c in [SE,BC,L,BT]]
