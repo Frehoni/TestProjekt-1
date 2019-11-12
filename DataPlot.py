@@ -36,7 +36,7 @@ def dataPlot(data):
     plt.title("Number of bacteria")
     plt.ylabel("Frequency of bacteria")
     plt.xlabel("Bacterias")
-
+    print("Printed plots: ")
     plt.show()
     #Growth rate by temperature plot
     #Data for Salmonella
@@ -65,7 +65,7 @@ def dataPlot(data):
     plt.ylabel("Growth rate")
     plt.xlabel("Temperatures")
     plt.xlim([10, 60])
-    plt.ylim([0, np.amax(Growth)])
+    plt.ylim([0, np.amax(Growth)+0.5])
     plt.legend(loc="upper left")
     plt.show()
     #create legend - https://stackoverflow.com/questions/43872450/matplotlib-histogram-with-multiple-legend-entries
@@ -77,6 +77,6 @@ def dataPlot(data):
     #plt.plot(y, x, color='b', label="Average temperature") 
     #plt.plot(y, xmean, color='r', label="Average Mean temperature")
 
-print(dataPlot(np.column_stack((np.array([12,50,30,40,35,25,55,2,10,3,22,45]),np.array([1.1,0.2,1,0.5,0.6,0.7,2,1.4,0.7,0.01,3.25,1.26]),np.array([2,4,1,3,1,1,2,1,3,3,4,2]))))) 
+#print(dataPlot(np.column_stack((np.array([12,50,30,40,35,25,55,2,10,3,22,45]),np.array([1.1,0.2,1,0.5,0.6,0.7,2,1.4,0.7,0.01,3.25,1.26]),np.array([2,4,1,3,1,1,2,1,3,3,4,2]))))) 
 
 

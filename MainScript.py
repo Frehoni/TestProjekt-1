@@ -238,6 +238,7 @@ while True:
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
             istheredata = True
+        print(dataPlot(data))
     
     #Quit
     elif choice ==5:
