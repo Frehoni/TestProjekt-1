@@ -204,31 +204,30 @@ while True:
             data = dataLoad(filename)
             istheredata = True
         statslist = np.array(['Calculate the average temperature','Calculate the average growth rate','Calculate the standard deviation of the temperatures','Calulate standard deviation of the growth rates','Calculate the number of rows in the data','Calculate the average growth rate when the temperature is less than 20°C','Calculate the average growth rate when the temperature is greater than 50°C','Go back'])
-        Temp,Growth,Bact = np.hsplit(data,3)
         while True:
             statsoption = displayMenu(statslist)
             
             if statsoption == 1:
                 stat = dataStatistics(data,1)
-                print(stat)
+                print("The average temperature is {}".format(stat))
             elif statsoption == 2:
                 stat = dataStatistics(data,2)
-                print(stat)
+                print("The average growth rate is {}".format(stat))
             elif statsoption == 3:
                 stat = dataStatistics(data,3)
-                print(stat)
+                print("The standard deviation of the temperatures is {1f}".format(stat))
             elif statsoption == 4:
                 stat = dataStatistics(data,4)
-                print(stat)
+                print("The standard deviation of the growth rate is {1f}".format(stat))
             elif statsoption == 5:
                 stat = dataStatistics(data,5)
-                print(stat)
+                print("The data contains {} rows".format(stat))
             elif statsoption == 6:
                 stat = dataStatistics(data,6)
-                print(stat)
+                print("The average growth rate for temperatures smaller than 20°C is {}".format(stat))
             elif statsoption == 7: 
                 stat = dataStatistics(data,7)
-                print(stat)
+                print("The average growth rate for temperatures greater than 50°C is {}".format(stat))
             elif statsoption == 8:
                 break
             
