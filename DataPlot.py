@@ -46,23 +46,22 @@ def dataPlot(data):
     x1 = np.sort(salmo[:,0])
     y1 = np.sort(salmo[:,1])
     
-    print(x1,y1)
-    plt.plot(x1,y1,color='red',legend="Salmonella Enterca")
+    plt.plot(x1,y1,color='red',label="Salmonella Enterca")
     #Data for bakterie 2
     bakt2 = data[np.where(data[:,2] == 2)]
     x2 = np.sort(bakt2[:,0])
     y2 = np.sort(bakt2[:,1])
-    plt.plot(x2,y2,color='green',legend="Bacillus Cereus")
+    plt.plot(x2,y2,color='green',label="Bacillus Cereus")
     #Data for bakterie 3
     bakt3 = data[np.where(data[:,2] == 3)]
     x3 = np.sort(bakt3[:,0])
     y3 = np.sort(bakt3[:,1])
-    plt.plot(x3,y3,color='blue',legend="Listeria")
+    plt.plot(x3,y3,color='blue',label="Listeria")
     #Data for bakterie 4
     bakt4 = data[np.where(data[:,2] == 4)]
     x4 = np.sort(bakt4[:,0])
     y4 = np.sort(bakt4[:,1])
-    plt.plot(x4,y4,color='cyan',legend="Brochothrix Thermosphacta")
+    plt.plot(x4,y4,color='cyan',label="Brochothrix Thermosphacta")
     #Generelt for Plot
 >>>>>>> 93ad4a123c19f2a747942015beba73ab460e802e
     plt.title("Growth rate of bacteria by temperature")
