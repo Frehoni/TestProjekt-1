@@ -8,12 +8,12 @@ while True:
     choice = displayMenu(menuItems)
     # Enter filename
 
-    if choice ==1:
+    if choice ==1: #Load Data
         filename = input("Please enter the full file name, for example \"file.csv\" : ")
         data = dataLoad(filename)
         print("Your data is:")
         print(data)
-        if type(data) == type(array):
+        if type(data) == type(array): #Check if the data was approved 
             istheredata = True
         else:
             istheredate = False
@@ -45,25 +45,25 @@ while True:
             E = True
             F = True
             rowstack = np.array([])
-            Temp,Growth,Bact = np.hsplit(data,3)
+            Temp,Growth,Bact = np.hsplit(data,3) #Splitting the data up into temperature, growth rate and bacteria
             bactnr = np.array([1,2,3,4])
             bactoption = displayMenu(bactsortoption)
             
             if bactoption == 1:
-                
+                #Sorting for bacterias
                 for row in range(np.size(Growth)):
                     split = data[row,:]
 
                     if split[2] == bactnr[0]:
-                        if D == False or E == False or F == False:
+                        if D == False or E == False or F == False: #Checking if other bacterias have been sorted for
                             print("You have already sorted for another type of bacteria.")
                             pass
-                        if C == True:
+                        if C == True: #Making the first split into rowstack
                             rowstack = split
                             C=False
 
                         else:
-                            rowstack = np.vstack((rowstack,split))
+                            rowstack = np.vstack((rowstack,split)) #Stacking the new data
             
             elif bactoption == 2:
                 for row in range(np.size(Growth)):
@@ -117,7 +117,7 @@ while True:
                             rowstack = np.vstack((rowstack,split))
             elif bactoption == 5:
                 pass
-                            
+            #Samler dataen
             data = rowstack
             print(data)       
 
@@ -148,7 +148,7 @@ while True:
                 if growth_option == 1: #Upper boundary
                     #bla
                     upper = float(input("Type a upper boundary as a number: "))
-                    assert upper > 0
+                    assert upper > 0 #Tjekker at vores upper ikke er mindre end lower og omvendt. 
                     assert upper > lower
                     
                     
@@ -202,7 +202,7 @@ while True:
                                 else:
                                     rowstack = np.vstack((rowstack,split))
                                     
-
+                    #Samler dataen
                     data = rowstack
                     break
                 
@@ -225,7 +225,7 @@ while True:
         statslist = np.array(['Calculate the average temperature','Calculate the average growth rate','Calculate the standard deviation of the temperatures','Calculate standard deviation of the growth rates','Calculate the number of rows in the data','Calculate the average growth rate when the temperature is less than 20°C','Calculate the average growth rate when the temperature is greater than 50°C','Go back'])
         while True:
             statsoption = displayMenu(statslist)
-            
+            #Viser alle de forskellige muligheder for statisitk.
             if statsoption == 1:
                 stat = dataStatistics(data,1)
                 print("The average temperature is {}".format(stat))

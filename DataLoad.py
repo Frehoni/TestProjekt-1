@@ -4,7 +4,7 @@ import pandas as pd
 
 def dataLoad(filename):
 
-    try:
+    try: #Tjekker om filen kan findes og kan læses
         fildata = pd.read_csv(filename) #Åbner og læser filen så den kan bruges
     except FileNotFoundError:
         return "Date file not found, please try again"
