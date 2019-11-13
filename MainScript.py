@@ -1,7 +1,8 @@
 import numpy as np
-
+array = np.array([])
 menuItems = np.array(["Load data.","Filter data.","Display statistics.","Generate plots.","Quit."])
 istheredata = False
+errormsg = True #Skal man spammes med errormsg eller ej. Måske et input fra brugeren?
 while True:
     #Display menu
     choice = displayMenu(menuItems)
@@ -10,14 +11,25 @@ while True:
     if choice ==1:
         filename = input("Please enter the full file name, for example \"file.csv\" : ")
         data = dataLoad(filename)
-        istheredata = True
+        print("Your data is:")
+        print(data)
+        if type(data) == type(array):
+            istheredata = True
+        else:
+            istheredate = False
     # Filter data
     elif choice == 2:
         if istheredata != True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
-            istheredata = True
+            print("Your data is:")
+            print(data)
+            if type(data) == type(array):
+                istheredata = True
+            else:
+                istheredate = False
+                pass
         #bactnr = np.array(['1','2','3','4'])
         bactsortoption = np.array(["Salmonella Enterca","Bacillus Cereus","Listeria","Brochothrix Thermosphacta","Go back"])
         filtoptions = np.array(['Sort for Bacteria type.','Sort for Growth rate.','Go back'])
@@ -150,10 +162,12 @@ while True:
                     equal = float(input("Type what the growth rate should be equal to: "))
                     equal_true = True
                 if growth_option == 4: #Remove
+                    errormsg = False
                     data = dataLoad(filename) 
                     upper = np.max(data) #upper og lower indtil vi andet er defineret
                     lower = np.min(data)
                     equal_true = False
+                    errormsg = True
                 if growth_option == 5: #Finish
                     #bla  
                     rowstack = np.array([])
@@ -186,7 +200,6 @@ while True:
                                     B = False
 
                                 else:
-                                    print(split,rowstack)
                                     rowstack = np.vstack((rowstack,split))
                                     
 
@@ -202,7 +215,13 @@ while True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
-            istheredata = True
+            print("Your data is:")
+            print(data)
+            if type(data) == type(array):
+                istheredata = True
+            else:
+                istheredate = False
+                pass
         statslist = np.array(['Calculate the average temperature','Calculate the average growth rate','Calculate the standard deviation of the temperatures','Calculate standard deviation of the growth rates','Calculate the number of rows in the data','Calculate the average growth rate when the temperature is less than 20°C','Calculate the average growth rate when the temperature is greater than 50°C','Go back'])
         while True:
             statsoption = displayMenu(statslist)
@@ -237,7 +256,13 @@ while True:
             print("Missing datafile. Please insert a file before this function can run:")
             filename = input("Please enter the full file name, for example \"file.csv\" : ")
             data = dataLoad(filename)
-            istheredata = True
+            print("Your data is:")
+            print(data)
+            if type(data) == type(array):
+                istheredata = True
+            else:
+                istheredate = False
+                pass
         print(dataPlot(data))
     
     #Quit

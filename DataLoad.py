@@ -3,8 +3,11 @@ import pandas as pd
 
 
 def dataLoad(filename):
-    errormsg = True #Skal man spammes med errormsg eller ej. Måske et input fra brugeren?
-    fildata = pd.read_csv(filename) #Åbner og læser filen så den kan bruges
+
+    try:
+        fildata = pd.read_csv(filename) #Åbner og læser filen så den kan bruges
+    except FileNotFoundError:
+        return "Date file not found, please try again"
     Temperature = np.array([]) #Tre åbne vektorerer til data
     Growth = np.array([])
     Bacteria = np.array([])
