@@ -1,6 +1,8 @@
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+
 def dataPlot(data):
     
     Temp,Growth,Bact = np.hsplit(data,3)
@@ -33,14 +35,17 @@ def dataPlot(data):
     #https://matplotlib.org/tutorials/introductory/pyplot.html
     freq = np.array([SE,BC,L,BT])
     navne = ['[1] SE','[2] BC','[3] L','[4] BT']
+    plt.figure(figsize=(15,8))
     plt.bar(navne,freq, color= ['red','green','blue','cyan'])
     plt.title("Number of bacteria")
     plt.ylabel("Frequency of bacteria")
     plt.xlabel("Bacterias")
     print("Printed plots: ")
+
     plt.show()
     #Growth rate by temperature plot
     #Data for Salmonella
+    plt.figure(figsize=(15,8))
     salmo = data[np.where(data[:,2] == 1)]
     x1 = np.sort(salmo[:,0])
     y1 = np.sort(salmo[:,1])
@@ -68,5 +73,6 @@ def dataPlot(data):
     plt.xlim([10, 60])
     plt.ylim([0, np.amax(Growth)+0.5])
     plt.legend(loc="upper left")
+
     plt.show()
 
